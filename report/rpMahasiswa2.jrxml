@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpMahasiswa2" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="786" leftMargin="28" rightMargin="28" topMargin="42" bottomMargin="28" uuid="d1a7757c-fc0e-46de-84d1-2a377aed90e9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parKdProdi" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="parIdTa" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select b.prodi, c.tahun_angkatan, a.nim, a.nama_mhs, a.jk, a.tmp_lahir, a.tgl_lahir, a.alamat, a.no_telepon from tbmahasiswa a, tbprodi b, tbthangkatan c where a.kd_prodi=b.kd_prodi and a.id_ta=c.id_ta and a.id_ta=$P{parIdTa} and a.kd_prodi=$P{parKdProdi} order by a.id_ta, a.kd_prodi]]>
+	</queryString>
+	<field name="prodi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tahun_angkatan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nim" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_mhs" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jk" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tmp_lahir" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_lahir" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="no_telepon" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="76" splitType="Stretch">
+			<staticText>
+				<reportElement x="78" y="31" width="385" height="25" uuid="5aaef1d3-dc96-46d8-9dbd-6c374922c4b1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AKADEMI KOMUNITAS NEGERI KAJEN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="78" y="56" width="385" height="20" uuid="4c24c434-39a0-4657-8d89-ece6e8d844cd"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Jl.Bahurekso No.1 Kajen,Email: aknkajen@gmail.com, Website: aknkajen.ac.id]]></text>
+			</staticText>
+			<image>
+				<reportElement x="8" y="10" width="69" height="65" uuid="01458553-b205-4e2d-8ca2-5388d72dffac"/>
+				<imageExpression><![CDATA["C:\\xampp\\htdocs\\siakadv3_161530036\\report\\logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="78" y="11" width="385" height="20" uuid="47f98100-90c2-4508-9572-b55475e53948"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN DATA MAHASISWA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="8" y="10" width="100" height="20" uuid="ef3be80e-5ba1-4b84-be1c-16397109dd6c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tahun Angkatan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="30" width="100" height="20" uuid="95d0de04-80ac-4277-9e4d-b109a2090ea3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Program Studi]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="108" y="10" width="168" height="20" uuid="483eb16c-1645-4596-ba26-2889152baae9"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[": "+$F{tahun_angkatan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="30" width="168" height="20" uuid="ff8b44e6-2772-4cf6-a8b9-26105bb4cdab"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[": "+$F{prodi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="32" y="0" width="82" height="25" backcolor="#CCFFFF" uuid="3cb8f183-6c50-4043-8665-9f642ffe2339"/>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Double"/>
+					<topPen lineWidth="1.25" lineStyle="Double"/>
+					<leftPen lineWidth="1.25" lineStyle="Double"/>
+					<bottomPen lineWidth="4.25" lineStyle="Double"/>
+					<rightPen lineWidth="1.25" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NIM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="114" y="0" width="185" height="25" backcolor="#CCFFFF" uuid="5004f304-6db4-44a4-a53c-a38eec4cc1b6"/>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Double"/>
+					<topPen lineWidth="1.25" lineStyle="Double"/>
+					<leftPen lineWidth="1.25" lineStyle="Double"/>
+					<bottomPen lineWidth="4.25" lineStyle="Double"/>
+					<rightPen lineWidth="1.25" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Mahasiswa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="300" y="0" width="30" height="25" backcolor="#CCFFFF" uuid="1674722e-f0af-41fe-b6e7-cb7ff779513f"/>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Double"/>
+					<topPen lineWidth="1.25" lineStyle="Double"/>
+					<leftPen lineWidth="1.25" lineStyle="Double"/>
+					<bottomPen lineWidth="4.25" lineStyle="Double"/>
+					<rightPen lineWidth="1.25" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[L/P]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="330" y="0" width="131" height="25" backcolor="#CCFFFF" uuid="250ad798-f005-4876-9da6-c6f5ad79d943"/>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Double"/>
+					<topPen lineWidth="1.25" lineStyle="Double"/>
+					<leftPen lineWidth="1.25" lineStyle="Double"/>
+					<bottomPen lineWidth="4.25" lineStyle="Double"/>
+					<rightPen lineWidth="1.25" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tempat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="461" y="0" width="72" height="25" backcolor="#CCFFFF" uuid="d2e471df-233d-4464-a137-dd90de981339"/>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Double"/>
+					<topPen lineWidth="1.25" lineStyle="Double"/>
+					<leftPen lineWidth="1.25" lineStyle="Double"/>
+					<bottomPen lineWidth="4.25" lineStyle="Double"/>
+					<rightPen lineWidth="1.25" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tgl. Lahir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="533" y="0" width="253" height="25" backcolor="#CCFFFF" uuid="5ba156a5-bb41-436b-9089-a69af233d3f5"/>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Double"/>
+					<topPen lineWidth="1.25" lineStyle="Double"/>
+					<leftPen lineWidth="1.25" lineStyle="Double"/>
+					<bottomPen lineWidth="4.25" lineStyle="Double"/>
+					<rightPen lineWidth="1.25" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Alamat | No. Telepon]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="32" height="25" backcolor="#CCFFFF" uuid="6275623b-f254-4f56-9490-dfa85189914b"/>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Double"/>
+					<topPen lineWidth="1.25" lineStyle="Double"/>
+					<leftPen lineWidth="1.25" lineStyle="Double"/>
+					<bottomPen lineWidth="4.25" lineStyle="Double"/>
+					<rightPen lineWidth="1.25" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="32" y="0" width="82" height="40" uuid="49157bc0-d8a0-4a3b-8ad8-df3fd9df5d10"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nim}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="0" width="185" height="40" uuid="3da6b3e0-f3ac-4309-b209-e083cb086796"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nama_mhs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="30" height="40" uuid="8863dade-5767-41d5-a4a0-d1345884757b"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{jk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="131" height="40" uuid="ee393b9a-a195-4e77-a2f5-e746ebd5649e"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tmp_lahir}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement x="461" y="0" width="72" height="40" uuid="6069e865-5550-4d8c-af0e-f1ee5d5004f1"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tgl_lahir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="533" y="0" width="253" height="40" uuid="6b4858d0-6c90-41c4-b0f0-8d782183a771"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{alamat}+" | No. Telepon : "+$F{no_telepon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="32" height="40" uuid="8d0d9d36-1d9a-4d9c-bc3c-74062b9c84f6"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
